@@ -4,6 +4,9 @@ import os
 import asyncio
 from agents import Agent, AsyncOpenAI, OpenAIChatCompletionsModel, RunConfig, Runner
 
+if "email_history" not in st.session_state:
+    st.session_state.email_history = []
+
 load_dotenv()
 
 API_KEY = os.getenv("GEMINI_API_KEY")
