@@ -9,10 +9,18 @@ if "email_history" not in st.session_state:
 
 load_dotenv()
 
-API_KEY = os.getenv("GEMINI_API_KEY")
-if not API_KEY:
-    raise ValueError(
-        "GEMINI_API_KEY is not set. Please ensure it is defined in your .env file")
+import os
+from dotenv import load_dotenv
+
+# Load .env only if running locally
+if not os.getenv("GEMINI_API_KEY"):
+    load_dotenv()
+
+api_key = os.getenv("GEMINI_API_KEY")
+
+if not api_key:
+    raise ValueError("GEMINI_API_KEY is not set. Please define it in Streamlit secrets or .env file.")
+
 
 external_client = AsyncOpenAI(
     api_key=API_KEY,
