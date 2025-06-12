@@ -110,7 +110,7 @@ st.title(page)
 
 if page == "📧 Generate Email":
     user_prompt = st.text_area(
-        "✏️ What's your message? (e.g. reschedule meeting to Friday 3pm)", height=100)
+        "✏️ What's your message? (e.g. reschedule meeting to Monday at 4pm))", height=100)
     tone = st.selectbox("🎯 Choose the tone of your email:", [
         "Formal", "Friendly", "Apologetic", "Persuasive", "Grateful",
         "Assertive", "Confident", "Encouraging", "Tactful", "Professional",
