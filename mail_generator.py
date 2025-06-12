@@ -6,12 +6,6 @@ import asyncio
 
 if "email_history" not in st.session_state:
     st.session_state.email_history = []
-
-load_dotenv()
-
-import os
-from dotenv import load_dotenv
-
 # Load .env only if running locally
 if not os.getenv("GEMINI_API_KEY"):
     load_dotenv()
