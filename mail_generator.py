@@ -1,8 +1,8 @@
+from agents import Agent, AsyncOpenAI, OpenAIChatCompletionsModel, RunConfig, Runner
 import streamlit as st
 from dotenv import load_dotenv
 import os
 import asyncio
-from agents import Agent, AsyncOpenAI, OpenAIChatCompletionsModel, RunConfig, Runner
 
 if "email_history" not in st.session_state:
     st.session_state.email_history = []
@@ -12,10 +12,8 @@ load_dotenv()
 API_KEY = os.getenv("GEMINI_API_KEY")
 if not API_KEY:
     raise ValueError(
-        "GEMINI_API_KEY is not set. Please ensure it is defined in your .env file."
-    )
+        "GEMINI_API_KEY is not set. Please ensure it is defined in your .env file")
 
-# ✅ Correct API key used here
 external_client = AsyncOpenAI(
     api_key=API_KEY,
     base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
@@ -61,8 +59,9 @@ async def enhance_email(prompt):
     except Exception as e:
         return f"❌ Error: {e}"
 
-st.set_page_config(page_title="MailCrafter AI", page_icon="📧")
-st.sidebar.title("📬 MailCrafter AI")
+
+st.set_page_config(page_title="SwiftMail AI", page_icon="📧")
+st.sidebar.title("📬 SwiftMail AI")
 page = st.sidebar.radio(
     "Select Feature", ["📧 Generate Email", "✨ Enhance Email"])
 st.sidebar.markdown("## 📜 Email History")
@@ -111,7 +110,7 @@ st.title(page)
 
 if page == "📧 Generate Email":
     user_prompt = st.text_area(
-        "✏️ What's your message? (e.g. reschedule meeting to Mpndayday 4pm)", height=100)
+        "✏️ What's your message? (e.g. reschedule meeting to Friday 3pm)", height=100)
     tone = st.selectbox("🎯 Choose the tone of your email:", [
         "Formal", "Friendly", "Apologetic", "Persuasive", "Grateful",
         "Assertive", "Confident", "Encouraging", "Tactful", "Professional",
