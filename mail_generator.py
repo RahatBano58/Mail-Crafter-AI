@@ -60,8 +60,8 @@ async def enhance_email(prompt):
         return f"❌ Error: {e}"
 
 
-st.set_page_config(page_title="SwiftMail AI", page_icon="📧")
-st.sidebar.title("📬 SwiftMail AI")
+st.set_page_config(page_title="MailCrafter AI", page_icon="📧")
+st.sidebar.title("📬 MailCrafter AI")
 page = st.sidebar.radio(
     "Select Feature", ["📧 Generate Email", "✨ Enhance Email"])
 st.sidebar.markdown("## 📜 Email History")
