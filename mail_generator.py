@@ -35,7 +35,7 @@ EmailAgent = Agent(
 
 async def generate_email(prompt):
     try:
-        response = await Runner.run_sync(
+        response = await Runner.run(
             EmailAgent,
             input=prompt,
             run_config=config
